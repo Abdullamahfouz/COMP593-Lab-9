@@ -32,23 +32,31 @@ def handle_get_info():
         err_msg =  f'Unable to fetch information for { poki_name.capitalize()} from the PokeAPI'
         messagebox.showinfo(title='Error', message=err_msg, icon='error')
     lbl_height_value['text'] = f" {poki_info['height'] } dm"
+    lbl_weight_value['text'] = f" {poki_info['weight'] } hg"
     
     bar_hp['value'] = poki_info['stats'][0]['base_stat']
-    bar_attack['value'] = poki_info['stats'][0]['base_stat']
-    bar_defense['value'] = poki_info['stats'][0]['base_stat']
-    bar_Special_attack['value'] = poki_info['stats'][0]['base_stat']
-    bar_speed['value'] = poki_info['stats'][0]['base_stat']
-    bar_Special_Defense['value'] = poki_info['stats'][0]['base_stat']
+    bar_attack['value'] = poki_info['stats'][1]['base_stat']
+    bar_defense['value'] = poki_info['stats'][2]['base_stat']
+    bar_Special_attack['value'] = poki_info['stats'][3]['base_stat']
+    bar_speed['value'] = poki_info['stats'][4]['base_stat']
+    bar_Special_Defense['value'] = poki_info['stats'][5]['base_stat']
     return
 
 btn_get_info = ttk.Button(frm_top, text='Get Info', command=handle_get_info)
 btn_get_info.grid(row=0, column=2, padx= 10, pady= 10)
 # Populaate widget in the info frame
-lbl_height = ttk.Label (frm_btm_left, text='Height')
+lbl_height = ttk.Label (frm_btm_left, text='Heigh:')
 lbl_height.grid(row=0, column=0)
 
 lbl_height_value = ttk.Label(frm_btm_left, text= 'TBD')
 lbl_height_value.grid(row=0, column=1)
+
+lbl_weight = ttk.Label (frm_btm_left, text='Weight:')
+lbl_weight.grid(row=1, column=0)
+
+lbl_weight_value = ttk.Label(frm_btm_left, text= 'TBD')
+lbl_weight_value.grid(row=1, column=1)
+
 
 lbl_hp = ttk.Label(frm_btm_right, text= 'HP:')
 lbl_hp.grid(row=0, column=0)
