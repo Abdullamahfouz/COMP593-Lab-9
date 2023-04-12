@@ -37,13 +37,14 @@ def handle_get_info():
     lbl_weight_value['text'] = f" {poki_info['weight'] } hg"
     
     
-    types_list = [t['type']['name'].title() for t in poki_info['types']]
-    type = len(types_list)
-    if type == 1:
-        lbl_type_value ['text'] = f"{types_list[0]}"
-    else:
+    types_list = [t['type']['name'].capitalize() for t in poki_info['types']]
+
+    if len(types_list)> 1:
          types2 = ', '.join(types_list[:-1])
          lbl_type_value['text'] = f"{types2}, {types_list[-1]}"
+    elif len(types_list) == 1:
+        lbl_type_value ['text'] = f"{types_list[0]}"
+         
         
     
     
