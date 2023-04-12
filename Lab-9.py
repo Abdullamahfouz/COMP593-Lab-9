@@ -36,19 +36,17 @@ def handle_get_info():
     lbl_height_value['text'] = f" {poki_info['height'] } dm"
     lbl_weight_value['text'] = f" {poki_info['weight'] } hg"
     
-    
+    # gets the poke type
     types_list = [t['type']['name'].capitalize() for t in poki_info['types']]
-
+    
+    #if poke has more than 1 type
     if len(types_list)> 1:
          types2 = ', '.join(types_list[:-1])
          lbl_type_value['text'] = f"{types2}, {types_list[-1]}"
+    # if poke has one type
     elif len(types_list) == 1:
         lbl_type_value ['text'] = f"{types_list[0]}"
          
-        
-    
-    
-    
     # displays the stats 
     bar_hp['value'] = poki_info['stats'][0]['base_stat']
     bar_attack['value'] = poki_info['stats'][1]['base_stat']
